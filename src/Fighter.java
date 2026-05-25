@@ -10,60 +10,61 @@ class Fighter {
 }
 
 // TODO: define the Warrior class
-class Warrior extends Fighter{
+class Warrior extends Fighter {
     private String type = "Warrior";
 
     @Override
-        boolean isVulnerable(){
-            return false;
-        }
+    boolean isVulnerable() {
+        return false;
+    }
+
     @Override
-    int getDamagePoints(Fighter fighter){
-        if(!fighter.isVulnerable()){
+    int getDamagePoints(Fighter fighter) {
+        if (!fighter.isVulnerable()) {
             return 6;
-        }else{
+        } else {
             return 10;
         }
-        
+
     }
 
 
-    public String toString(){
+    public String toString() {
         return "Fighter is a Warrior";
     }
-    
-    
+
+
 }
 
 // TODO: define the Wizard class
 class Wizard extends Fighter {
     boolean preparedSpell = false;
+
     @Override
     boolean isVulnerable() {
-        if(this.preparedSpell){
+        if (this.preparedSpell) {
             return false;
-        }else if (!this.preparedSpell){
+        } else if (!this.preparedSpell) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    void prepareSpell(){
+    void prepareSpell() {
         this.preparedSpell = !this.preparedSpell;
     }
 
-    public String toString(){
+    public String toString() {
         return "Fighter is a Wizard";
     }
 
-    
+
     @Override
-    int getDamagePoints(Fighter fighter){
-        if(fighter.isVulnerable() && this.preparedSpell == true){
+    int getDamagePoints(Fighter fighter) {
+        if (fighter.isVulnerable() && this.preparedSpell == true) {
             return 12;
-        }
-        else{
+        } else {
             return 3;
         }
     }
